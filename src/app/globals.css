@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #f7f7f8;
+  --foreground: #171717;
+  --card: #ffffff;
+  --card-border: #e5e5e5;
+}
+
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --card: #1a1a1a;
+  --card-border: #2e2e2e;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
