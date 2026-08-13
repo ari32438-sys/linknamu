@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import clientPromise from "@/lib/mongodb";
+import { getClientPromise } from "@/lib/mongodb";
 
 const DB_NAME = "linknamu";
 const COLLECTION = "clicks";
@@ -11,7 +11,11 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "linkId is required" }, { status: 400 });
   }
 
-  const client = await clientPromise;
+  if (!process.env.MONGODB_URI) {
+    return NextResponse.json({ linkId, count: null });
+  }
+
+  const client = await getClientPromise();
   const collection = client.db(DB_NAME).collection(COLLECTION);
 
   const result = await collection.findOneAndUpdate(
@@ -24,7 +28,11 @@ export async function POST(request: NextRequest) {
 }
 
 export async function GET() {
-  const client = await clientPromise;
+  if (!process.env.MONGODB_URI) {
+    return NextResponse.json({});
+  }
+
+  const client = await getClientPromise();
   const collection = client.db(DB_NAME).collection(COLLECTION);
 
   const docs = await collection.find({}).toArray();
