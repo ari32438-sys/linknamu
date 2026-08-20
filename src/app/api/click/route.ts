@@ -29,20 +29,7 @@ export async function POST(request: NextRequest) {
 
 export async function GET() {
   if (!process.env.MONGODB_URI) {
-    return NextResponse.json({
-      _debug: {
-        hasKey: "MONGODB_URI" in process.env,
-        isTruthy: Boolean(process.env.MONGODB_URI),
-        length: process.env.MONGODB_URI?.length ?? 0,
-        vercelEnv: process.env.VERCEL_ENV ?? null,
-        nodeEnv: process.env.NODE_ENV ?? null,
-        debugPing: process.env.DEBUG_PING ?? null,
-        envKeyCount: Object.keys(process.env).length,
-        matchingKeys: Object.keys(process.env).filter((k) =>
-          /mongo|uri|db_/i.test(k)
-        ),
-      },
-    });
+    return NextResponse.json({});
   }
 
   const client = await getClientPromise();
