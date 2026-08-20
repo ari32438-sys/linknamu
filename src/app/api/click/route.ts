@@ -38,6 +38,9 @@ export async function GET() {
         nodeEnv: process.env.NODE_ENV ?? null,
         debugPing: process.env.DEBUG_PING ?? null,
         envKeyCount: Object.keys(process.env).length,
+        matchingKeys: Object.keys(process.env).filter((k) =>
+          /mongo|uri|db_/i.test(k)
+        ),
       },
     });
   }
