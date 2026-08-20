@@ -10,8 +10,11 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
         foreground: "var(--foreground)",
+        "foreground-muted": "var(--foreground-muted)",
+      },
+      fontFamily: {
+        sans: ["var(--font-pretendard)", "Pretendard", "sans-serif"],
       },
     },
   },

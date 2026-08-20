@@ -24,7 +24,7 @@ export default function DarkModeToggle() {
     <button
       onClick={toggle}
       aria-label="다크모드 전환"
-      className="fixed right-4 top-4 rounded-full border border-[var(--card-border)] bg-[var(--card)] p-2 text-lg shadow-sm"
+      className="fixed right-5 top-5 rounded-full border border-[var(--card-glass-border)] bg-[var(--toggle-bg)] p-2.5 text-lg shadow-[0_4px_16px_rgba(0,0,0,0.08)] backdrop-blur-md transition-transform hover:scale-105"
     >
       {isDark ? "🌙" : "☀️"}
     </button>

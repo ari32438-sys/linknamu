@@ -3,21 +3,31 @@
 @tailwind utilities;
 
 :root {
-  --background: #f7f7f8;
-  --foreground: #171717;
-  --card: #ffffff;
-  --card-border: #e5e5e5;
+  --bg-start: #fdf6ec;
+  --bg-end: #ffe3d0;
+  --foreground: #3a2e26;
+  --foreground-muted: #8a7a6f;
+  --card-glass: rgba(255, 255, 255, 0.45);
+  --card-glass-border: rgba(255, 255, 255, 0.6);
+  --card-glass-hover: rgba(255, 255, 255, 0.6);
+  --toggle-bg: rgba(255, 255, 255, 0.55);
 }
 
 .dark {
-  --background: #0a0a0a;
-  --foreground: #ededed;
-  --card: #1a1a1a;
-  --card-border: #2e2e2e;
+  --bg-start: #201812;
+  --bg-end: #34241c;
+  --foreground: #f3e9e0;
+  --foreground-muted: #b8a99c;
+  --card-glass: rgba(50, 38, 31, 0.45);
+  --card-glass-border: rgba(255, 255, 255, 0.1);
+  --card-glass-hover: rgba(60, 46, 38, 0.55);
+  --toggle-bg: rgba(50, 38, 31, 0.6);
 }
 
 body {
   color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(160deg, var(--bg-start), var(--bg-end)) fixed;
+  font-family: var(--font-pretendard), "Pretendard", -apple-system, sans-serif;
+  min-height: 100vh;
+  transition: background 0.3s ease, color 0.3s ease;
 }
