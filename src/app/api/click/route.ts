@@ -36,6 +36,8 @@ export async function GET() {
         length: process.env.MONGODB_URI?.length ?? 0,
         vercelEnv: process.env.VERCEL_ENV ?? null,
         nodeEnv: process.env.NODE_ENV ?? null,
+        debugPing: process.env.DEBUG_PING ?? null,
+        envKeyCount: Object.keys(process.env).length,
       },
     });
   }
